@@ -33,6 +33,4 @@ int main()
         cout << mpp[number] << endl;
         n--;
     }
-
-
 }
