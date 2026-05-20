@@ -1,0 +1,45 @@
+/*
+
+pattern
+
+1             1 
+1 2         2 1 
+1 2 3     3 2 1 
+1 2 3 4 4 3 2 1 
+
+*/
+
+#include <iostream>
+
+using namespace std;
+
+void printpattern(int n)
+{
+    for( int i = 0; i < n; i ++)
+    {
+
+        for(int j = 0; j <= i; j++)
+        {
+            cout << j + 1 << " ";
+        }
+
+        for(int j = 0; j < 2 * (n - i) - 2; j++)
+        {
+            cout << "  ";
+        }
+
+        for(int j = i; j >= 0; j--)
+        {
+            cout << j + 1 << " ";
+        }
+
+
+        cout << endl;
+    }
+}
+
+
+int main()
+{
+    printpattern(4);
+}
