@@ -6,7 +6,7 @@ int partition(std::vector<int>& arr, int high, int low);
 
 int main()
 {
-    std::vector<int> arr = {4, 6, 2, 5, 7, 9, 1, 3};
+    std::vector<int> arr = {5, 1, 6, 9, 3, 8};
 
     for( int i =  0; i < arr.size(); i++)
     {
@@ -24,6 +24,7 @@ int main()
     return 0;
 }
 
+// call recursively
 void quickSort(std::vector<int>& arr, int low, int high)
 {
     if(low < high)
@@ -35,6 +36,7 @@ void quickSort(std::vector<int>& arr, int low, int high)
     }
 }
 
+// 2 pointer approach and swap elements
 int partition(std::vector<int>& arr, int low, int high)
 {
     int pivot = arr[low];
@@ -49,7 +51,7 @@ int partition(std::vector<int>& arr, int low, int high)
             pointer1++;
         }
 
-        while(arr[pointer2] > pivot && pointer2 >= low - 1)
+        while(arr[pointer2] > pivot && pointer2 >= low + 1)
         {
             pointer2--;
         }
