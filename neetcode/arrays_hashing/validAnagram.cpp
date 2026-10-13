@@ -54,7 +54,7 @@ bool isAnagram(std::string s, std::string t) {
             }
         }
 
-        // Time complexity is O(n) + O(n) + O(n) = O(3n)
+        // Time complexity is O(n) + O(n) + O(n) = 3*O(n)
 
         return true;
 
