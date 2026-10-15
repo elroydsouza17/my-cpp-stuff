@@ -50,7 +50,7 @@ void sortArray(int (&arr)[N])
                 arr[i + 1] = temp;
             }
         }
-        printArray(arr, N);
+        printArray(arr);
     }
 }
 
@@ -65,7 +65,6 @@ void printArray(int (&arr)[N])
     }
 
     cout << endl;
-
 }
 
 template <size_t N>
