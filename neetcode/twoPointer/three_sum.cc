@@ -7,6 +7,7 @@
 void quickSort(std::vector<int>& nums, int low, int high);
 int partition(std::vector<int>& nums, int low, int high);
 void printVector(std::vector<int>& num);
+void printVectorOfVectors(std::vector<std::vector<int>>& num);
 
 class Solution {
   public:
@@ -44,7 +45,35 @@ class Solution {
         }
       }
     }
-};
+
+    std::vector<std::vector<int>> threeSumOptimal(std::vector<int>& nums, int target) {
+      std::vector<std::vector<int>> output;
+      for (int i = 0; i < nums.size()  - 2; i++) {
+        if (i > 0 && nums[i] == nums[i - 1]) {
+          continue;
+        }
+
+        int left = i + 1;
+        int right = nums.size() - 1;
+
+        while (left < right) {
+          if (nums[i] + nums[left] + nums[right] == target) {
+            output.push_back({nums[i], nums[left], nums[right]});
+            left++;
+            while (nums[left] == nums[left - 1] && left < right) {
+              left++;
+            }
+          } else if (nums[i] + nums[left] + nums[right] < target) {
+            left++;
+          } else {
+            right--;
+          }
+        }
+      }
+
+      return output;
+    }
+  };
 
 int main() {
   Solution solution;
@@ -53,6 +82,11 @@ int main() {
   printVector(s);
   // solution.threeSumBrute(s, 0);
   solution.threeSumHashMap(s, 0);
+  std::cout << "===== 2 POINTER BELOW =======" << std::endl;
+  auto res = solution.threeSumOptimal(s, 0);
+  printVectorOfVectors(res);
+
+
 }
 
 void quickSort(std::vector<int>& nums, int low, int high) {
@@ -97,6 +131,16 @@ int partition(std::vector<int>& nums, int low, int high) {
 void printVector(std::vector<int>& num) {
   for (int i = 0; i < num.size(); i++) {
     std::cout << num[i] << " " ;
+  }
+  std::cout << std::endl;
+}
+
+void printVectorOfVectors(std::vector<std::vector<int>>& num) {
+  for (int i = 0; i < num.size(); i++) {
+    for (int j = 0; j < num[i].size(); j++) {
+    std::cout << num[i][j] << " " ;
+    }
+    std::cout << std::endl;
   }
   std::cout << std::endl;
 }
